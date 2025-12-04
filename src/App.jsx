@@ -1,17 +1,21 @@
-function App() {
-var a = 1;
-  return (
-  <>
-    <div>
-      {
-        a
-      }
-    </div>
-    <p>this is a paragraph</p>
-    <input type="number" />
-    <h1>this is h1</h1>
+import { useState } from "react";
 
-  </>
+function App() {
+  const [count , setcount] = useState(1);
+  const handleIncreaseCount =()=>{
+    setcount((prev)=>prev+1)
+  }
+  const handleDecreaseCount =()=>{
+    setcount((prev)=>prev-1)
+  }
+  return (
+    <>
+    <div>
+      <button onClick={handleDecreaseCount}>Decrease</button>
+      <div>Value of count = {count}</div>
+      <button onClick={handleIncreaseCount}>Increase</button>
+    </div>
+    </>
   )
 }
 
