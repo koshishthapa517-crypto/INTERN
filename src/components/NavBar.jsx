@@ -1,9 +1,9 @@
-
-
 const Navbar = () => {
   return (
-    <div>Navbar</div>
-  )
-}
+    
+      <div style={{ fontSize: '20px', fontWeight: 'bold' ,  }}>Counter Tally</div>
+  
+  );
+};
 
-export default Navbar
+export default Navbar;
