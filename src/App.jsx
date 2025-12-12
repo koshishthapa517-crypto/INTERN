@@ -1,18 +1,32 @@
-import { NavLink, Route, Routes } from 'react-router';
-import Home from './pages/Home.jsx';
-import Settings from './pages/Settings.jsx';
+
+import { use, useEffect, useState } from 'react';
+import axios from 'axios';
 
 const App = () => {
-  return (<>
-    <Routes>
-      <Route path='/' element={<Home />} />
-      <Route path='/settings' element={<Settings />} />
-    </Routes>
-    <nav className='fixed top left-11 right-11 flex justify-between bg-gray-200 p-4 mt-70 rounded-full'>
-      <NavLink to="/" >Home</NavLink>
-      <NavLink to="/settings" >Settings</NavLink>
-    </nav>
-   </>
+     const [randomDog,setRandomDog] = useState({});
+      const handleGenerateNewImage = async () => {
+        try {
+          const response = await axios.get('https://dog.ceo/api/breeds/image/random');
+          setRandomDog(response.data);
+        } catch (error) {
+          console.error(error);
+        }
+      };
+
+        useEffect(() => {
+        handleGenerateNewImage();
+      }, []);
+  return (
+      <>
+    <div className="flex w-screen flex-row items-center gap-10"></div>
+      <div className="text-3xl font-bold ">Random Dog Generator</div>
+      <button className='border p-3 cursor-pointer '
+      onClick={handleGenerateNewImage}> 
+      Generate  New Image
+      </button>
+      <img src={randomDog.message} alt=""/>
+      
+    </>
   )
 }
 
