@@ -1,4 +1,4 @@
-import { useRandomDog } from './hooks/useRandomDog';
+import useRandomDog  from './hooks/useRandomDog';
 import useCounter from './hooks/useCounter';
 
 const App = () => {
