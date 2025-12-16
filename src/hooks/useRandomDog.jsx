@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import axios from 'axios';
 import { useState } from 'react';
 
-export function useRandomDog(increment) {
+export default function useRandomDog(increment) {
   const [randomDog, setRandomDog] = useState(null);
 
   const handleGenerateNewImage = async () => {
